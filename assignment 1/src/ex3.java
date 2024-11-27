@@ -6,9 +6,9 @@ public class ex3 {
     public static void main(String[] args) {
         int a,b;
         Scanner s = new Scanner(System.in);
-        System.out.println("please enter number");
+        System.out.println("please enter integer");
         a = s.nextInt();
-        System.out.println("enter the second number");
+        System.out.println("enter the second integer");
         b = s.nextInt();
         while (a == b)
         {

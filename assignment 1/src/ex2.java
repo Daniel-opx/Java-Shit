@@ -13,7 +13,7 @@ public class ex2 {
         while(num > 9999 || num <1000)
         {
             System.out.println("length of number is under 4 - error!!,please enter new a number");
-             num = scanner.nextInt();
+            num = scanner.nextInt();
         }
         int reversedNum = 0;
         while(num > 0)
