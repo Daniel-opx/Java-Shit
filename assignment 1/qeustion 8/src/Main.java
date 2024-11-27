@@ -9,55 +9,36 @@ public class Main {
 
         byte num;
         Scanner scanner = new Scanner(System.in);
+
         System.out.println("enter a positive integer");
         num = scanner.nextByte();
+
         while(!(num < 10 && num > 0)) {
             System.out.println("Error: the number must be positive , please try again");
             System.out.println("enter a positive integer");
             num = scanner.nextByte();
         }
-        for(int i = (int)(Power(10,num)); i < (int)Power(10, num + 1);i++)
+
+       int min =1,max = 1;
+        for(int i  = 0; i < num; i++)
         {
-            if(IsPalindrome(i))
+            min *= 10;
+        }
+        max = min * 10;
+
+        for(int i = min; i < max; i++)
+        {
+            int currNum = i;
+            int reversed = 0;
+            while(currNum > 0)
             {
-                System.out.print(i + ",");
+                reversed = (reversed * 10) + (currNum % 10);
+                currNum /= 10;
             }
+            if(reversed == i)
+                System.out.println(i);
         }
 
-    }
-    public static boolean IsPalindrome(int number)
-    {
-        return number == ReverseNum(number);
-    }
-    public static int ReverseNum(int num)
-    {
-        int reversedNum = 0;
-        for(int i = GetNumLength(num)-1; i >-1;i--)
-        {
-            reversedNum += (int)((num%10) *Power(10,i));
-            num = num/10;
-        }
-        return reversedNum;
-    }
-    public static double Power(double base, double exponent)
-    {
-       double res = 1;
-        while(exponent >= 1)
-        {
-            res = res * base;
-            exponent--;
-        }
-        return res;
-    }
-    public static int GetNumLength(int a)
-    {
-        int counter = 0;
-        while (a > 0)
-        {
-            a =a/10;
-            counter++;
-        }
-        return counter;
     }
 
 
