@@ -1,0 +1,6 @@
+<dependency>
+    <groupId>systems.manifold</groupId>
+    <artifactId>manifold-ext</artifactId>
+    <version>2022.1.21</version>
+    <scope>provided</scope>
+</dependency>

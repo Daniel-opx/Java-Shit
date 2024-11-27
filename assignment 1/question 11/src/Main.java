@@ -9,10 +9,8 @@ public class Main {
         int tries = 2;
         System.out.println("please eneter number grater than 1");
         num = reader.nextInt();
-        while(num < 1)
-        {
-            if (tries ==0)
-            {
+        while (num < 1) {
+            if (tries == 0) {
                 System.out.println("Error: the number must be greater than 1, Exiting Program");
                 return;
             }
@@ -22,7 +20,7 @@ public class Main {
             tries--;
         }
         PrintPrimeDivisors(num);
-
+    }
 
 
 
@@ -30,7 +28,7 @@ public class Main {
         //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
         // to see how IntelliJ IDEA suggests fixing it.
 
-    }
+
     public static void PrintPrimeDivisors(int number)
     {
         int divisor;
