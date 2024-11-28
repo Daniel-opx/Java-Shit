@@ -8,7 +8,7 @@ public class ex5 {
         // to see how IntelliJ IDEA suggests fixing it.
         Scanner reader = new Scanner(System.in);
         double a,b,c;
-        System.out.println("enter length of three edges");
+        System.out.print("enter length of three edges: ");
         a = reader.nextDouble();
         b= reader.nextDouble();
         c= reader.nextDouble();

@@ -3,14 +3,14 @@ import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
+public class ex11 {
     public static void main(String[] args) {
         Scanner reader = new Scanner(System.in);
 
         int num;
         int tries = 2;
 
-        System.out.println("please eneter number grater than 1");
+        System.out.print("please enter number grater than 1: ");
         num = reader.nextInt();
 
         while (num < 1) {
@@ -48,7 +48,6 @@ public class Main {
         }
 
     }
-
 
 
 }

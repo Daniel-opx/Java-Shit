@@ -10,12 +10,12 @@ public class ex8 {
         byte num;
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("enter a positive integer");
+        System.out.println("enter a positive integer: ");
         num = scanner.nextByte();
 
         while(!(num < 10 && num > 0)) {
             System.out.println("Error: the number must be positive , please try again");
-            System.out.println("enter a positive integer");
+            System.out.print("enter a positive integer: ");
             num = scanner.nextByte();
         }
 
@@ -35,10 +35,14 @@ public class ex8 {
                 reversed = (reversed * 10) + (currNum % 10);
                 currNum /= 10;
             }
-            if(reversed == i)
-                System.out.println(i);
+            if(reversed == i && i == max - 1)
+                System.out.print(i + " ");
+            else if (reversed == i)
+            {
+                System.out.print(i + ", ");
+            }
         }
-
+        scanner.close();
     }
 
 

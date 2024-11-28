@@ -8,11 +8,11 @@ public class ex2 {
         // to see how IntelliJ IDEA suggests fixing it.
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("please enter a number");
+        System.out.print("Enter a positive numbers with at least 4 digits: ");
         int num = scanner.nextInt();
         while(num > 9999 || num <1000)
         {
-            System.out.println("length of number is under 4 - error!!,please enter new a number");
+            System.out.print("please try again\nEnter a positive numbers with at least 4 digits: ");
             num = scanner.nextInt();
         }
         int reversedNum = 0;
@@ -27,7 +27,8 @@ public class ex2 {
 //            reversedNum += (int)((num%10) *Math.pow(10,i));
 //            num = num/10;
 //        }
-        System.out.println(reversedNum);
+        System.out.println("The reversed number is: " + reversedNum);
+        scanner.close();
 
     }
 

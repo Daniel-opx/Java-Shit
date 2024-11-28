@@ -7,9 +7,9 @@ public class exp7 {
         Scanner scanner = new Scanner(System.in);
 
         int binary1, binary2;
-        System.out.println("enter the first binary representation: ");
+        System.out.print("enter the first binary representation: ");
         binary1 = scanner.nextInt();
-        System.out.println("enter the second binary representation: ");
+        System.out.print("enter the second binary representation: ");
         binary2 = scanner.nextInt();
 
 
@@ -56,7 +56,7 @@ public class exp7 {
 
 
         System.out.println("output: " + reversed);
-
+        scanner.close();
 
         //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
         // to see how IntelliJ IDEA suggests fixing it.

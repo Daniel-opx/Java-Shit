@@ -4,21 +4,27 @@ import java.util.Scanner;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class ex3 {
     public static void main(String[] args) {
-        int a,b;
+        int a= 0,b = 0;
         Scanner s = new Scanner(System.in);
-        System.out.println("please enter integer");
-        a = s.nextInt();
-        System.out.println("enter the second integer");
-        b = s.nextInt();
-        while (a == b)
-        {
-            System.out.println("the second and first number is equal, please enter new number for the second number");
+
+        boolean isFirstTime = true;
+        do{
+            if(!isFirstTime)
+                System.out.println("The numbers must be different. please try again");
+            System.out.print("Enter the first integer: ");
+            a = s.nextInt();
+            System.out.print("Enter the second integer: ");
             b = s.nextInt();
-        }
+            if(isFirstTime)
+            {
+                isFirstTime = false;
+            }
+        }while (a == b);
+
+
+
 
         int sumOfDigitA = 0;
-        //because we dont use function we need to create another variable- a function would have take the int by value
-        //i.e copy of the variable value and not the variable itself
         int copyOfA = a;
         //absolute value of the number
         copyOfA = a< 0? a *-1: a;
@@ -39,7 +45,6 @@ public class ex3 {
             copyOfB /= 10;
         }
 
-
         if (sumOfDigitA == sumOfDigitB)
         {
             System.out.printf("the numbers %d and %d have the same sum of digits",a,b);
@@ -48,8 +53,6 @@ public class ex3 {
         {
             System.out.printf("the numbers %d and %d do not have the same sum of digits",a,b);
         }
-
-
+        s.close();
     }
-
 }

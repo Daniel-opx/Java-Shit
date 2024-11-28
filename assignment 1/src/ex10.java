@@ -3,15 +3,15 @@ import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
+public class ex10 {
     public static void main(String[] args) {
         Scanner reader = new Scanner(System.in);
 
         int lowerBound, upperBound;
         int numberOfTries = 2;
-        System.out.println("enter lower bound");
+        System.out.print("enter lower bound: ");
         lowerBound = reader.nextInt();
-        System.out.println("enter upper bound");
+        System.out.print("enter upper bound: ");
         upperBound = reader.nextInt();
 
 
@@ -24,9 +24,9 @@ public class Main {
             }
 
             System.out.println("Error: invalid input, please try again");
-            System.out.println("enter lower bound");
+            System.out.print("enter lower bound: ");
             lowerBound = reader.nextInt();
-            System.out.println("enter upper bound");
+            System.out.print("enter upper bound: ");
             upperBound = reader.nextInt();
 
             numberOfTries--;

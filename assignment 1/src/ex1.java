@@ -7,13 +7,13 @@ public class ex1 {
         //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
         // to see how IntelliJ IDEA suggests fixing it.
         Scanner scanner = new Scanner(System.in);
-        System.out.println("please enter num");
+        System.out.print("Number: ");
         float a = scanner.nextFloat();
-        System.out.println("please enter num");
+        System.out.print("Number: ");
         float b = scanner.nextFloat();
-        System.out.println("please enter num");
+        System.out.print("Number: ");
         float c = scanner.nextFloat();
-        System.out.println("please enter num");
+        System.out.print("Number: ");
         float d = scanner.nextFloat();
 
 
@@ -92,15 +92,16 @@ public class ex1 {
         float sumOfRoundedFloats = roundedA + roundedB + roundedC + roundedD;
 
 
-        System.out.printf("%.2f %.2f %.4f %.2f\nthr sum of the numbers is %f\n", a,b,c,d, a+b+c+d);
-        System.out.printf("the sum of the rounded numbers is %f",
+        System.out.printf("Numbers entered:[%.2f %.2f %.2f %.2f]\nSum of the numbers: %.2f\n", a,b,c,d, a+b+c+d);
+        System.out.printf("the sum of the numbers rounded  up: %.2f\n",
                 sumOfRoundedFloats
         );
 
 
-        System.out.printf("the avg is: %f\n", (a+b+c+d)/4.0);
-        System.out.printf("the sum of whole parts is: %d\n",
+        System.out.printf("Averge of the numbers: %.2f\n", (a+b+c+d)/4.0);
+        System.out.printf("the sum of the integer parts of the number: %d\n",
                 (int) a+ (int)b+ (int)(c)+ (int)(d));
+        scanner.close();
 
 
 

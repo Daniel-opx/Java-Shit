@@ -9,7 +9,7 @@ public class ex6 {
         Scanner scanner = new Scanner(System.in);
         int binaryNum;
         int mult = 1;
-        System.out.println("enetr a number in binary representation: ");
+        System.out.print("enter a number in binary representation: ");
         binaryNum = scanner.nextInt();
         int decimal=0;
 
@@ -18,6 +18,7 @@ public class ex6 {
         {
             decimal += (int)((binaryNumCopy % 10) * mult);
             binaryNumCopy /= 10;
+            //the weight of the number in base 2
             mult *= 2;
         }
         System.out.println(binaryNum+ "(in base 2) =" + decimal + "(in base 10)");
