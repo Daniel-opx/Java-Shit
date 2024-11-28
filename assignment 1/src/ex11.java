@@ -1,4 +1,6 @@
-import javax.swing.*;
+//Asignment : 1
+//Author: Daniel Sasson, ID 318885167
+
 import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or

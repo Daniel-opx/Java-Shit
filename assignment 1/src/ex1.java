@@ -1,6 +1,7 @@
-import java.util.Scanner;
 //Asignment : 1
 //Author: Daniel Sasson, ID 318885167
+
+import java.util.Scanner;
 
 public class ex1 {
     public static void main(String[] args) {

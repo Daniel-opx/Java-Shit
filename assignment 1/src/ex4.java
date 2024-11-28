@@ -1,12 +1,12 @@
+//Asignment : 1
+//Author: Daniel Sasson, ID 318885167
+
 import java.util.Scanner;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class ex4 {
     public static void main(String[] args) {
         String dayACE = "9:00-14:00";
-        String dayB = "9:00-13:00";
-        String dayD = "9:00-13:00, 16:00-19:00";
+        String dayBD = "9:00-13:00, 16:00-19:00";
         String dayF = "08:00- 12:00";
         String dayG = "closed";
 
@@ -32,11 +32,8 @@ public class ex4 {
                 case 'A', 'C', 'E':
                     System.out.println("call center hours:" + dayACE);
                     break;
-                case 'B':
-                    System.out.println("call center hours:" + dayB);
-                    break;
-                case 'D':
-                    System.out.println("call center hours:" + dayD);
+                case 'B' , 'D':
+                    System.out.println("call center hours:" + dayBD);
                     break;
                 case 'F':
                     System.out.println("call center hours:" + dayF);
