@@ -1,3 +1,4 @@
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -12,6 +13,8 @@ public class Main {
         lowerBound = reader.nextInt();
         System.out.println("enter upper bound");
         upperBound = reader.nextInt();
+
+
         while(!IsValid(lowerBound,upperBound))
         {
             if(numberOfTries == 0)
@@ -28,10 +31,41 @@ public class Main {
 
             numberOfTries--;
         }
+
+        boolean didFindPrime = false;
         for(int i = lowerBound; i <= upperBound; i++)
         {
-            if(IsPrime(i))
-                System.out.print(i +",");
+            boolean isPrime = false;
+            if(i < 2)
+                continue;
+            else if (i % 2 == 0) {
+                continue;
+            }
+            else if(i <= 3) {
+                isPrime = true;
+            }
+            else {
+                boolean foundContradiction = false;
+                for(int j = 3; j < i; j+=2)
+                {
+                    if(i % j == 0)
+                    {
+                        foundContradiction = true;
+                        break;
+                    }
+                }
+                isPrime = !foundContradiction;
+            }
+
+            if(isPrime)
+            {
+                System.out.println(i);
+                didFindPrime = true;
+            }
+        }
+        if(!didFindPrime)
+        {
+            System.out.println("No prime number in this range");
         }
 
 

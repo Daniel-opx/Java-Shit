@@ -5,10 +5,13 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner reader = new Scanner(System.in);
+
         int num;
         int tries = 2;
+
         System.out.println("please eneter number grater than 1");
         num = reader.nextInt();
+
         while (num < 1) {
             if (tries == 0) {
                 System.out.println("Error: the number must be greater than 1, Exiting Program");
@@ -19,6 +22,8 @@ public class Main {
             num = reader.nextInt();
             tries--;
         }
+
+
         PrintPrimeDivisors(num);
     }
 
