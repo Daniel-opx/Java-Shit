@@ -14,32 +14,55 @@ public class ex5 {
                 matrix[i][j] = reader.nextInt();
             }
         }
+        FindSeatInMatrix(matrix);
 
     }
-    static int[] GetRowsMaxes(int[][] matrix, int[] rowsMaxes)
+
+    static void GetRowsMin(int[][] matrix, int[] rowsMin)
     {
         int numOfRows = matrix.length;
         int numOfColumns = matrix[0].length;
 
         for (int i = 0; i < numOfRows; i++) {
-            rowsMaxes[i] = matrix[i][0];
+            rowsMin[i] = matrix[i][0];
             for (int j = 1; j < numOfColumns; j++) {
-                rowsMaxes[i] = rowsMaxes[i] <= matrix[i][j]? matrix[i][j] : rowsMaxes[i];
+                rowsMin[i] = rowsMin[i] > matrix[i][j]? matrix[i][j] : rowsMin[i];
             }
         }
 
     }
-    static int[] GetRowsMaxes(int[][] matrix, int[] colsMaxes)
+    static void GetColsMaxes(int[][] matrix, int[] colsMax)
     {
         int numOfRows = matrix.length;
         int numOfColumns = matrix[0].length;
 
         for (int j = 0; j < numOfColumns; j++) {
-            colsMaxes[j] = matrix[j][0];
+            colsMax[j] = matrix[0][j];
             for (int i = 1; i < numOfRows; i++) {
-                colsMaxes[i] = colsMaxes[i] <= matrix[j][i]? matrix[j][i] : colsMaxes[j];
+                colsMax[j] = colsMax[j] <= matrix[i][j]? matrix[i][j] : colsMax[j];
             }
         }
 
+    }
+    static void FindSeatInMatrix(int[][] matrix)
+    {
+        int numOfRows = matrix.length;
+        int numOfColumns = matrix[0].length;
+
+        int[] rowsMins = new int[numOfRows] , colsMaxes = new int[numOfColumns];
+        GetColsMaxes(matrix,colsMaxes);
+        GetRowsMin(matrix, rowsMins);
+
+        for (int i = 0; i < numOfRows; i++) {
+            for (int j = 0; j < numOfColumns; j++) {
+                if(matrix[i][j] == rowsMins[i] && matrix[i][j] == colsMaxes[j])
+                {
+                    System.out.println("th seat is " + matrix[i][j]);
+                    return;
+                }
+
+            }
+        }
+        System.out.println("there is no seats");
     }
 }
