@@ -12,10 +12,10 @@ public class ex2 {
         PrintArr(arr);
 
         arr = RemoveDuplicate(arr);
-        System.out.print("new array without duplicates: ");
+        System.out.print("\nnew array without duplicates: ");
         PrintArr(arr);
-
         System.out.println();
+
         int sum = 0 , currSum = 0;
         for(int i = 0; i < arr.length - 1;i++)
         {
