@@ -1,12 +1,12 @@
 import java.util.Scanner;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+// Assignment: 2
+// Author: Daniel Sasson ID:318885167
 public class ex1 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("please enter length of arrays: ");
+        System.out.print("please enter length of arrays: ");
         int arrLength = scanner.nextInt();
         int[] arr1 , arr2;
         arr1 = new int[arrLength];

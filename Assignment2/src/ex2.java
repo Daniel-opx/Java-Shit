@@ -1,10 +1,13 @@
+// Assignment: 2
+// Author: Daniel Sasson ID:318885167
+
 import java.util.Scanner;
 
 public class ex2 {
     public static  void main(String[] args)
     {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("enter the length: ");
+        System.out.print("array size: ");
         int length = scanner.nextInt();
         int[] arr = InnitIntArray(length);
 
@@ -34,7 +37,7 @@ public class ex2 {
     public static int[] InnitIntArray(int length)
     {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("enter numbers for array: ");
+        System.out.print("array values: ");
         int[] arr = new int[length];
         for(int i = 0; i < length; i++)
         {

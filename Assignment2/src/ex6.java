@@ -1,3 +1,6 @@
+// Assignment: 2
+// Author: Daniel Sasson ID:318885167
+
 import java.util.Scanner;
 
 public class ex6 {

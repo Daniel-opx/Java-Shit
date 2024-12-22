@@ -1,3 +1,6 @@
+// Assignment: 2
+// Author: Daniel Sasson ID:318885167
+
 import java.util.Scanner;
 
 public class ex5 {
@@ -57,12 +60,12 @@ public class ex5 {
             for (int j = 0; j < numOfColumns; j++) {
                 if(matrix[i][j] == rowsMins[i] && matrix[i][j] == colsMaxes[j])
                 {
-                    System.out.println("th seat is " + matrix[i][j]);
+                    System.out.printf("%d at (%d, %d)",matrix[i][j] , i, j);
                     return;
                 }
 
             }
         }
-        System.out.println("there is no seats");
+        System.out.println("לא קיימת נקודת ישיבה");
     }
 }

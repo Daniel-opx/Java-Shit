@@ -1,3 +1,6 @@
+// Assignment: 2
+// Author: Daniel Sasson ID:318885167
+
 import java.util.Scanner;
 
 public class ex7 {
@@ -19,11 +22,11 @@ public class ex7 {
         MoveEachRowUp(matrix);
         for(int i = 0; i < matrix.length; i++)
         {
-            System.out.print("[");
+
             for (int j = 0; j < matrix[0].length; j++) {
-                System.out.print(matrix[i][j]);
+                System.out.print(matrix[i][j]+" ");
             }
-            System.out.println("],");
+            System.out.println();
         }
 
     }
@@ -32,7 +35,7 @@ public class ex7 {
         int numOfRows = matrix.length;
         if(!((r2Idx >= 0  && r2Idx < matrix.length) && (r1Idx >= 0  && r1Idx < matrix.length)))
             return;
-        int[] temp = new int[matrix.length];
+        int[] temp = new int[matrix[0].length];
 
         for (int i = 0; i < temp.length; i++) {
             temp[i] = matrix[r2Idx][i];

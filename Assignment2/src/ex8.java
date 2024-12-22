@@ -1,23 +1,37 @@
-import java.sql.Array;
+// Assignment: 2
+// Author: Daniel Sasson ID:318885167
+
+import java.util.Scanner;
 
 public class ex8 {
     public static void main(String[] args)
     {
-        int[][] matrix = new int[][]{
-                {1,2,3,4},
-                {5,6,7,8},
-                {9,10,11,12},
-                {13,14,15,16}
-        };
+        Scanner reader = new Scanner(System.in);
+
+        System.out.print("enter number of rows: ");
+        int numOfRows = reader.nextInt();
+        System.out.print("enter number of columns: ");
+        int numOfColumns = reader.nextInt();
+
+        int[][] matrix = new int[numOfRows][numOfColumns];
+
+        System.out.println("enter the matrix values row by row: ");
+        for (int i = 0; i < numOfRows; i++) {
+            for (int j = 0; j < numOfColumns; j++) {
+                matrix[i][j] = reader.nextInt();
+            }
+        }
+
         int[][] newMatrix = new int[matrix.length][matrix[0].length];
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[0].length; j++) {
                 CalcSumOfNeighbors(matrix, i, j, newMatrix);
             }
         }
+        System.out.println("\n"+"new matrix: ");
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[0].length; j++) {
-                System.out.print(matrix[i][j] + ",");
+                System.out.print(newMatrix[i][j] + ",");
             }
             System.out.println();
         }

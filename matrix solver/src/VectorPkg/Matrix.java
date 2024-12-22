@@ -1,8 +1,9 @@
-import VectorPkg.Vector;
+package VectorPkg;
 
 public class Matrix {
     private final int rows;
-    Vector[] vectors;
+    private  Vector[] vectors;
+    private int numOfCols;
     public int GetRowsCount()
     {
         return  this.rows;
@@ -15,9 +16,19 @@ public class Matrix {
 
     }
 
+    /**
+     *
+     * @param vectorsArr  array of object of type Vetor, all must be in the same length
+     */
     public Matrix(Vector... vectorsArr)
     {
         this(vectorsArr.length);
+        for(int i = 0; i < vectorsArr.length - 1; i++)
+        {
+            if(vectorsArr[i].getLength() != vectorsArr[i + 1].getLength())
+                return;
+        }
+        this.numOfCols = vectorsArr[0].getLength();
         for(int i = 0; i < vectorsArr.length;i++)
         {
             vectors[i] = Vector.InstaciateZeroMatrix(vectorsArr[0].getLength());
@@ -37,6 +48,14 @@ public class Matrix {
             sb.append("\n");
         }
         return sb.toString();
+    }
+    public void AddMatrix(Matrix other)
+    {
+        if(this.vectors.length != other.vectors.length || this.vectors[0].getLength() != other.vectors[0].getLength())
+            return;
+        for (int i = 0; i < this.vectors.length; i++) {
+            this.vectors[i].AddVector(other.vectors[i]);
+        }
     }
 
 

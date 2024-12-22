@@ -1,3 +1,6 @@
+// Assignment: 2
+// Author: Daniel Sasson ID:318885167
+
 import java.util.Scanner;
 
 public class ex3 {
@@ -68,7 +71,7 @@ public class ex3 {
     public static int[] InnitIntArray(int length)
     {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("enter numbers for array: ");
+        System.out.print("enter numbers for array: ");
         int[] arr = new int[length];
         for(int i = 0; i < length; i++)
         {
