@@ -112,7 +112,24 @@ public class HW3 {
 
     // 6. convert Case
     public static String convertCase(String input) {
-        return "";
+        String converted = "";
+        for (int i = 0; i < input.length(); i++) {
+            char currentChar = input.charAt(i);
+            if(isUpper(currentChar))
+            {
+                converted += (char)(currentChar + ('a' - 'A'));
+            }
+            else if(isLower(currentChar)){
+                converted += (char)(currentChar - ('a' - 'A'));
+            }
+            else
+            {
+                converted += currentChar;
+            }
+
+        }
+        return  converted;
+
     }
 
     // 7. changes by the description for perfectNum
@@ -141,7 +158,14 @@ public class HW3 {
         System.out.println("All tests completed.");
 
     }
+    static boolean isUpper(char c)
+    {
+        return c >= 'A' && c <= 'Z';
+    }
 
+    static boolean isLower(char c) {
+        return c >= 'a' && c <= 'z';
+    }
 
 
 
