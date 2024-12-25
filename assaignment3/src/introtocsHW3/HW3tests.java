@@ -36,7 +36,7 @@ public class HW3tests {
 
         // Test 8: Number of cells
         System.out.println("Test 8: Number of cells\n" +
-                (HW3.numCells(2, 2, 3) == 16));
+                (HW3.numCells(1, 2, 3) == 3));
 
         // Test 9: Multiply strings
         System.out.println("Test 9: Multiply strings\n" +

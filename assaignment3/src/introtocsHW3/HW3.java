@@ -96,7 +96,7 @@ public class HW3 {
     // 5. Find the second largest element in an array
     public static int findSecondLargest(int[] array) {
         int max = array[0];
-        int secondMAx = array[0];
+        int secondMax = array[0];
         for (int i = 1; i < array.length; i++) {
             if(array[i] > max)
             {
@@ -104,10 +104,10 @@ public class HW3 {
             }
         }
         for (int i = 0; i < array.length; i++) {
-            if(array[i] < max && array[i] > secondMAx)
-                secondMAx = array[i];
+            if(array[i] < max && array[i] > secondMax)
+                secondMax = array[i];
         }
-        return secondMAx;
+        return secondMax;
     }
 
     // 6. convert Case
@@ -134,28 +134,117 @@ public class HW3 {
 
     // 7. changes by the description for perfectNum
     public static int perfectNum(int[][] array) {
-        return -1;
+        int counter = 0;
+        for (int i = 0; i < array.length; i++) {
+           int currentLength = array[i].length;
+            for (int j = 0; j < currentLength; j++) {
+                if(isPerfectNum(array[i][j]))
+                {
+                    array[i][j] = 0;
+                    counter++;
+                }
+            }
+        }
+        return counter;
     }
 
     // 8. numCells
     public static int  numCells(int initialNumberOfCells, int life, int numGenerations)  {
-        return -1;
+        int arraySize = initialNumberOfCells * Pow(2,numGenerations);
+        int cells[] = new int[arraySize];
+        for (int i = 0; i < arraySize; i++) {
+            cells[i] = life + 1;
+        }
+        int lastPopulatedIdx = initialNumberOfCells;
+        int lastPopulatedCellCpy = lastPopulatedIdx;
+        int numberOfLiveCells = initialNumberOfCells;
+        for (int i = 0; i < initialNumberOfCells; i++) {
+            cells[i] = 0;
+        }
+        for (int i = 0; i < numGenerations - 1; i++) {
+            for (int j = 0; j <lastPopulatedIdx ; j++) {
+                cells[j] += 1;
+            }
+            lastPopulatedCellCpy = lastPopulatedIdx;
+            for (int j = 0; j < lastPopulatedCellCpy; j++) {
+                if(cells[j] <= life)
+                {
+                    cells[lastPopulatedIdx] = 0;
+                    lastPopulatedIdx++;
+                    numberOfLiveCells++;
+                }
+                if(cells[j] == life)
+                {
+                    numberOfLiveCells--;
+                }
+            }
+
+
+        }
+
+
+
+
+
+        return numberOfLiveCells;
     }
 
     // 9. return the product of num1 and num2, also represented as a string.
     public static String multiplyStrings(String num1, String num2) {
-        return "";
+        int sum = 0;
+        int midSum = 0;
+        int mainMultiplier = 1;
+        int secondaryMultiplier = 1;
+        int num1Length = num1.length();
+        int num2Length = num2.length();
+        for (int i = num1Length-1; i >=0 ; i--) {
+            secondaryMultiplier = 1;
+            for (int j = num2Length - 1; j >= 0 ; j--) {
+                int num1Curr = num1.charAt(i) - '0';
+                int num2Curr = num2.charAt(j) - '0';
+                midSum += num1Curr * num2Curr * secondaryMultiplier;
+                secondaryMultiplier *= 10;
+            }
+
+            sum += midSum * mainMultiplier;
+            midSum = 0;
+            mainMultiplier *= 10;
+
+        }
+        String res = "";
+        while(sum > 0)
+        {
+            res += (char)((sum % 10) + '0');
+            sum /= 10;
+        }
+        String reversed = "";
+        for (int i = res.length()-1; i >= 0; i--) {
+            reversed = reversed + res.charAt(i);
+        }
+        return reversed;
     }
 
     // 10. Check if a string is a palindrome
     public static boolean isPalindrome(String str) {
-        return false;
+        if(str.length() == 2)
+        {
+            return str.charAt(0) == str.charAt(1);
+        }
+        for (int i = 0; i < str.length()/2; i++) {
+            if(str.charAt(i) != str.charAt(str.length()-i-1))
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
     public static void main(String[] args) {
         System.out.println("Running tests...");
         HW3tests.tests();
         System.out.println("All tests completed.");
+        System.out.println(Pow(10,2));
+
 
     }
     static boolean isUpper(char c)
@@ -168,7 +257,27 @@ public class HW3 {
     }
 
 
+    static boolean isPerfectNum(int num)
+    {
+        int sum = 0;
+        for(int i = 1; i < num; i++)
+        {
+            if(num % i == 0)
+            {
+                sum += i;
+            }
+        }
+        return sum == num;
+    }
 
+    static int Pow(int num,int power)
+    {
+        int res = 1;
+        for (int i = 0; i < power; i++) {
+            res *= num;
+        }
+        return res;
+    }
 }
 
 
