@@ -1,3 +1,5 @@
+// Assignment: 3
+// Author: Daniel Sasson, ID: 318885167
 package introtocsHW3;
 
 public class HW3 {
@@ -150,14 +152,19 @@ public class HW3 {
 
     // 8. numCells
     public static int  numCells(int initialNumberOfCells, int life, int numGenerations)  {
+
         int arraySize = initialNumberOfCells * Pow(2,numGenerations);
         int cells[] = new int[arraySize];
+        //life +1 is a numeric representation of an invalid cell - dead cell.
         for (int i = 0; i < arraySize; i++) {
             cells[i] = life + 1;
         }
+        /*lastPopulatedIdx and lastPopulatedIdxCpy is variables that hold the idx of the last populated cell in one
+        based index*/
         int lastPopulatedIdx = initialNumberOfCells;
         int lastPopulatedCellCpy = lastPopulatedIdx;
         int numberOfLiveCells = initialNumberOfCells;
+
         for (int i = 0; i < initialNumberOfCells; i++) {
             cells[i] = 0;
         }
@@ -230,6 +237,11 @@ public class HW3 {
         {
             return str.charAt(0) == str.charAt(1);
         }
+        else if(str.length() == 1)
+        {
+            return true;
+        }
+
         for (int i = 0; i < str.length()/2; i++) {
             if(str.charAt(i) != str.charAt(str.length()-i-1))
             {
