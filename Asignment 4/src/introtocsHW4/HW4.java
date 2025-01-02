@@ -4,7 +4,7 @@ package introtocsHW4;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class HW4 {
     public static void main(String[] args) {
-
+        
 
     }
     public static int  findSecondMax(int[] arr)
@@ -122,8 +122,69 @@ public class HW4 {
     }
     public static int determinant(int[][] arr)
     {
-        return 1;
+        return determinantHelper(arr,0,0);
     }
+    public static int determinantHelper(int[][] arr,int i, int j)
+    {
+        if(j == arr.length)
+        {
+            return 0;
+        }
+        if(arr.length ==2)
+        {
+            int res = arr[0][0] * arr[1][1] - arr[1][0] * arr[0][1];
+            return res;
+        }
+
+        int currSign = j % 2 == 0? 1: -1;
+        int[][] subMat = getSubMatrixWithoutRowIandColJ(arr,i,j);
+        return currSign * arr[i][j]*determinantHelper(subMat,i,0) + determinantHelper(arr,i,j+1);
+    }
+    public static int[][] getSubMatrixWithoutRowIandColJ(int[][] matrix, int row, int col)
+    {
+        int[][] subMatrix = new int[matrix.length -1][matrix.length-1];
+        populateSubMatrixWithoutRowIAndColJ(matrix, 0, 0, row, col, subMatrix, 0 ,0);
+        return subMatrix;
+    }
+
+    /**
+     * for every matrix n*n this will take as  arg matrix n-1*n-1 and populate it without the said row and col.
+     * edge case: this dunction is for all n*n matrices when n>=3
+     * @param srcMatrix matrix that will be populated across the recursion stacks, must be square
+     * @param i index for iteration over rows
+     * @param j index for iteration over columns
+     * @param row - row that will be removed from the original matrix
+     * @param col - col that will be removed` from the original matrix
+     */
+    public static void populateSubMatrixWithoutRowIAndColJ(int[][] srcMatrix, int i, int j, int row, int col, int[][] dstMatrix, int dstMatrixIIndex, int dstMatrixJIndex)
+    {
+        if(i == srcMatrix.length)
+        {
+            return;
+
+        }
+        else if(j == srcMatrix.length)
+        {
+            j = 0;
+            populateSubMatrixWithoutRowIAndColJ(srcMatrix,i+1,j,row,col, dstMatrix,dstMatrixIIndex,dstMatrixJIndex);
+        }
+        else
+        {
+            if(i != row && j != col)
+            {
+                dstMatrix[dstMatrixIIndex][dstMatrixJIndex] = srcMatrix[i][j];
+                dstMatrixJIndex++;
+                if(dstMatrixJIndex == dstMatrix.length)
+                {
+                    dstMatrixJIndex = 0;
+                    dstMatrixIIndex++;
+                }
+            }
+            populateSubMatrixWithoutRowIAndColJ(srcMatrix,i,j+1,row,col,dstMatrix,dstMatrixIIndex,dstMatrixJIndex);
+        }
+
+    }
+
 
     public static boolean isPower(int a, int b)
     {
