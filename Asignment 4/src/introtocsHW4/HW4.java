@@ -202,18 +202,106 @@ public class HW4 {
         }
         return isPowerHelper(a,b, num * b);
     }
-    public static boolean subsetSum(int[] arr, int a)
+    public static boolean subsetSum(int[] arr, int sum)
     {
-        return true;
-    }
-    public static int tribonacciElement(int a)
-    {
-        return 5;
+        if (sum == 0)
+        {
+            return true;
+        }
+        return subsetSum(arr, sum,0,arr[0],1);
     }
 
-    public static int[] tribonacciSequence(int num)
+    public static boolean subsetSum(int[] arr, int sum,int idx, int currentSum, int idxOffset)
     {
-        return new int[]{1,1,1};
+        if(idx + idxOffset >= arr.length)
+        {
+            return false;
+        }
+        if(currentSum == sum)
+        {
+            return true;
+        }
+        else if(currentSum > sum)
+        {
+            return false;
+        }
+        if(idx == arr.length-1) {
+            return currentSum == sum;
+        }
+        int midCalc = currentSum + arr[idx+idxOffset];
+        if(midCalc == sum)
+        {
+            return true;
+        }
+        boolean foo= subsetSum(arr, sum,idx ,midCalc, idxOffset +1);
+
+        if(foo)
+        {
+            return foo;
+        }
+        else
+        {
+            midCalc -= arr[idx + idxOffset];
+            boolean bar = subsetSum(arr, sum,idx ,midCalc, idxOffset + 1);
+            if(bar) {
+                return bar;
+            }
+        }
+        return subsetSum(arr, sum,idx + 1 ,arr[idx + 1], 1);
+
+
+
+
+    }
+    public static int tribonacciElement(int n)
+    {
+        if(n == 1 || n == 0)
+        {
+            return 0;
+        }
+        if(n == 2)
+        {
+            return 1;
+        }
+        return tribonacciElement(n-1) + tribonacciElement(n-2) + tribonacciElement(n-3);
+    }
+
+
+    public static int[] tribonacciSequence(int n)
+    {
+        int[] cache = new int[n];
+         tribonacciSequence(n,cache, 0, 0);
+         return cache;
+    }
+    public static int tribonacciSequence(int n, int[] cache, int cacheCount, int currIdx)
+    {
+        if(currIdx >= cache.length)
+        {
+            return -1;
+        }
+
+        int currValue = 0;
+        if(currIdx == 0 || currIdx == 1)
+        {
+            cache[currIdx] = HW4.tribonacciElement(currIdx);
+        }
+        else if (currIdx == 2)
+        {
+            cache[currIdx] = HW4.tribonacciElement(currIdx);
+
+        }
+        else
+        {
+            cache[currIdx] = cache[currIdx -1] + cache[currIdx -2] + cache[currIdx -3];
+        }
+        return HW4.tribonacciSequence(n, cache,cacheCount,currIdx +1 );
+
+
+
+
+
+
+
     }
 
     public static int primeFactors(int  a)

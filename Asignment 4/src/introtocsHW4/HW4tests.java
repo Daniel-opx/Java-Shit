@@ -50,6 +50,9 @@ public class HW4tests {
         // Task 7: Subset Sum
         int[] subsetArr1 = {6, 97, 15, 8, 3};
         int[] subsetArr2 = {3, 12, 2, 87, 5, 4};
+        //dekete later
+        int[] subsetArr3 = {4,2,9,8,0};
+        System.out.println(HW4.subsetSum(subsetArr3,10) == true);
         System.out.println("\nTask 7: Subset Sum");
         System.out.println(HW4.subsetSum(subsetArr1, 9) == true);
         System.out.println(HW4.subsetSum(subsetArr2, 13) == false);
@@ -58,6 +61,7 @@ public class HW4tests {
         System.out.println("\nTask 8: Tribonacci Element");
         System.out.println(HW4.tribonacciElement(10) == 81);
         System.out.println(HW4.tribonacciElement(5) == 4);
+
 
         // Task 9: Tribonacci Sequence
         System.out.println("\nTask 9: Tribonacci Sequence");
