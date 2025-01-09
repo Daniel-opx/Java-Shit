@@ -270,20 +270,24 @@ public class HW4 {
     public static int[] tribonacciSequence(int n)
     {
         int[] cache = new int[n];
-         tribonacciSequence(n,cache, 0, 0);
+         tribonacciSequence(n,cache, 0);
          return cache;
     }
-    public static int tribonacciSequence(int n, int[] cache, int cacheCount, int currIdx)
+    public static int tribonacciSequence(int n, int[] cache, int currIdx)
     {
         if(currIdx >= cache.length)
         {
             return -1;
         }
 
-        int currValue = 0;
-        if(currIdx == 0 || currIdx == 1)
+        if(currIdx == 0)
         {
             cache[currIdx] = HW4.tribonacciElement(currIdx);
+        }
+        else if (currIdx == 1)
+        {
+            cache[currIdx] = cache[currIdx-1];
+
         }
         else if (currIdx == 2)
         {
@@ -294,7 +298,7 @@ public class HW4 {
         {
             cache[currIdx] = cache[currIdx -1] + cache[currIdx -2] + cache[currIdx -3];
         }
-        return HW4.tribonacciSequence(n, cache,cacheCount,currIdx +1 );
+        return HW4.tribonacciSequence(n, cache,currIdx +1 );
 
 
 
@@ -304,8 +308,29 @@ public class HW4 {
 
     }
 
-    public static int primeFactors(int  a)
+    public static int primeFactors(int  n)
     {
-        return 5;
+        System.out.print("the prime factors of " + n + "are:");
+        int numOfPrimeFactors = primeFactors(n,2,0);
+        return numOfPrimeFactors;
+    }
+    public static int primeFactors(int  n,int divider,int counter)
+    {
+        if(n  == 1)
+        {
+            System.out.println();
+            return counter;
+        }
+        if(n % divider == 0)
+        {
+            int quotient = n / divider;
+            System.out.print(divider);
+            if (n != divider)
+            {
+                System.out.print(", ");
+            }
+            return primeFactors(n / divider,2,counter + 1);
+        }
+        return primeFactors(n, divider + 1, counter);
     }
 }
