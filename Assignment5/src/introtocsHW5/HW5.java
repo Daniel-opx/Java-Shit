@@ -29,10 +29,35 @@ public class HW5 {
 
         return new int[]{-1, -1};
     }
+
+
+    public static int rearrangeArray(int[] nums,int val)
+    {
+        int temp;
+        int valOccurenceCounter = 0;
+        for (int i = 0; i < nums.length - 1; i++) {
+            for (int j = 0; j < nums.length - 1 - i; j++) {
+                if( nums[j] == val ||(nums[j] > nums[j+1] && nums[j+1] != val))
+                {
+                    if(nums[j] == val)
+                    {
+                        valOccurenceCounter++;
+                    }
+                    temp = nums[j];
+                    nums[j] = nums[j+1];
+                    nums[j+1] = temp;
+                }
+            }
+        }
+        return valOccurenceCounter;
+    }
+
+
     public static void main(String[] args)
     {
-        int[] arr = new int[]{2,7,11,5};
-        int [] res = sumIndex(arr, 9);
-        System.out.println("bla");
+        int[] arr = new int[]{5,3,3,8,3,2,1};
+        int res = rearrangeArray(arr,3);
+        System.out.println("foo");
+
     }
 }
