@@ -1,12 +1,19 @@
+//assignment 4
+//author: Daniel Sasson ID:318885167
 package introtocsHW4;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+
 public class HW4 {
     public static void main(String[] args) {
         
 
     }
+
+    /**
+     *
+     * @param arr array of ints
+     * @return the second maximum elemnt in the array
+     */
     public static int  findSecondMax(int[] arr)
     {
         int firstMax = findFirstMax(arr,1,arr[0]);
@@ -14,7 +21,14 @@ public class HW4 {
         return secondMax;
     }
 
-
+    /**
+     *
+     * @param arr array of ints
+     * @param idx - index
+     * @param lastMax the max from the other recursion stacks
+     * @param firstMax
+     * @return second largest element in the int array
+     */
     private static int findSecondMax(int[] arr, int idx, int lastMax, int firstMax)
     {
         if(idx == arr.length - 1)
@@ -233,18 +247,18 @@ public class HW4 {
         {
             return true;
         }
-        boolean foo= subsetSum(arr, sum,idx ,midCalc, idxOffset +1);
+        boolean isCurrentSubsuetEqualsSum= subsetSum(arr, sum,idx ,midCalc, idxOffset +1);
 
-        if(foo)
+        if(isCurrentSubsuetEqualsSum)
         {
-            return foo;
+            return isCurrentSubsuetEqualsSum;
         }
         else
         {
             midCalc -= arr[idx + idxOffset];
-            boolean bar = subsetSum(arr, sum,idx ,midCalc, idxOffset + 1);
-            if(bar) {
-                return bar;
+            boolean isNextSubsetEqualsSum = subsetSum(arr, sum,idx ,midCalc, idxOffset + 1);
+            if(isNextSubsetEqualsSum) {
+                return isNextSubsetEqualsSum;
             }
         }
         return subsetSum(arr, sum,idx + 1 ,arr[idx + 1], 1);
@@ -310,7 +324,7 @@ public class HW4 {
 
     public static int primeFactors(int  n)
     {
-        System.out.print("the prime factors of " + n + "are:");
+        System.out.print("the prime factors of " + n + " are:");
         int numOfPrimeFactors = primeFactors(n,2,0);
         return numOfPrimeFactors;
     }
