@@ -1,3 +1,4 @@
+//Author: Daniel Sasson Id:318885167
 package introtocsHW5;
 
 public class HW5 {
@@ -32,7 +33,7 @@ public class HW5 {
     }
 
 
-    public static int rearrangeArray(int[] nums,int val)
+    public  int rearrangeArray(int[] nums,int val)
     {
         int temp;
         int valOccurenceCounter = 0;
@@ -55,7 +56,7 @@ public class HW5 {
         return valOccurenceCounter;
     }
 
-    public static int lengthOfLongestSubstring(String s)
+    public  int lengthOfLongestSubstring(String s)
     {
         int max = -1;
         boolean[] charsMap = new boolean[26];
@@ -80,7 +81,7 @@ public class HW5 {
         return max;
     }
 
-    public static String  longestCommonPrefix(String[] strs)
+    public  String  longestCommonPrefix(String[] strs)
     {
         String longestCommonPrefix = "";
 
@@ -111,7 +112,7 @@ public class HW5 {
         }
         return longestCommonPrefix;
     }
-    public static boolean findIndexSortedMat(int[][] mat, int val) {
+    public  boolean findIndexSortedMat(int[][] mat, int val) {
         int rows = mat.length;
         int cols = mat[0].length;
         int low = 0, high = rows * cols - 1;
@@ -135,7 +136,7 @@ public class HW5 {
 
 
 
-   public static boolean findMultiSortedArray(int [] arr, int k) {
+   public  boolean findMultiSortedArray(int [] arr, int k) {
        for (int i = 0; i < arr.length - 1; i++) {
            int product = arr[i] * arr[i + 1];
            if (product == k) {
@@ -198,7 +199,7 @@ public class HW5 {
         }
     }
 
-    public static void mergeSort(char[] array) {
+    public  void mergeSort(char[] array) {
 
         // For current size of subarrays to
         // be merged curr_size varies from
@@ -243,7 +244,7 @@ public class HW5 {
         }
     }
 
-    public static int orangesRotting(int[][] grid)
+    public  int orangesRotting(int[][] grid)
     {
 
 
@@ -310,40 +311,5 @@ public class HW5 {
 
 
 
-    public static void main(String[] args)
-    {
 
-        int[] arr = new int[]{5,3,3,8,3,2,1};
-        int res = rearrangeArray(arr,3);
-
-        String s = "pwwkew";
-        int subStringFoo = lengthOfLongestSubstring(s);
-        System.out.println("foo");
-
-        String[] strs = new String[]{"flower","dly","b"};
-        System.out.println(longestCommonPrefix(strs));
-
-        int[][] mat = new int[][]{
-                {0,1,1},
-                {2,4,5},
-                {7,8,8}
-
-        };
-        System.out.println(findIndexSortedMat(mat,8));
-
-        char[] chars = {'e','d','c','b','a'};
-        mergeSort(chars);
-        System.out.println("bla");
-
-        int[][] oranges = new int[][]
-                {
-                        {2,1,1},
-                        {0,1,1},
-                        {1,0,1}
-
-                };
-
-        int resault = orangesRotting(oranges);
-        System.out.println("bla");
-    }
 }
